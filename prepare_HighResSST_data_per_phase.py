@@ -47,6 +47,7 @@ if __name__ == '__main__':
     index_data = index_data.dropna()
     index_data['idx'] = pd.Series(data=range(len(index_data.index)), index=index_data.index)
     index_data = index_data[index_data.index >= datetime.datetime(1981, 9, 1)]
+    index_data = index_data[(index_data.index.year >= common.y_min) * (index_data.index.year <= common.y_max)]
 
     for season_name, smonths, nino_sign, pdo_sign, fig_num in common.ensopdo_combinations_generator():
         index_data_season = select_seasonal_from_index_data(index_data, smonths)
