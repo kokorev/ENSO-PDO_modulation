@@ -24,13 +24,13 @@ if __name__ == '__main__':
 
     plot_ws_map(var, sst_var, 9, 6, './figures/%s/ws_9-6.pdf' % var, mp, var_pecent=False)
     plot_ws_map(var, sst_var, 1, 4, './figures/%s/ws_1-4.pdf' % var, mp, var_pecent=False)
-    # for fig_num_1, fig_num_2 in ((9, 6), (1, 4)):
-    #     for season_name, smonths in common.seasons:
-    #         fn = './figures/%s/%s_%i-%i.pdf' % (var, season_name, fig_num_1, fig_num_2)
-    #         try:
-    #             plot_large_fig(var, sst_var, season_name, fig_num_1, fig_num_2, fn, mp, var_pecent=False, var_units='m/s')
-    #         except FileNotFoundError:
-    #             print('skipped', fn)
-    #             continue
-    #         print('done', fn)
+    for fig_num_1, fig_num_2 in ((9, 6), (1, 4)):
+        for season_name, smonths in common.seasons:
+            fn = './figures/%s/%s_%i-%i.pdf' % (var, season_name, fig_num_1, fig_num_2)
+            try:
+                plot_large_fig(var, sst_var, season_name, fig_num_1, fig_num_2, fn, mp, var_pecent=False, var_units='m/s')
+            except FileNotFoundError:
+                print('skipped', fn)
+                continue
+            print('done', fn)
 
